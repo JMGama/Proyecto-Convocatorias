@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="index.css" type="text/css">
-  <title>Pingendo - mobile app</title>
-  <meta name="description" content="Pingendo app landing page">
-  <meta name="keywords" content="Pingendo app mobile responsive ios android">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="AdminConvocatorias.css" type="text/css"> </head>
 
-<body class="text-center">
+<body>
   <div class="cover d-flex align-items-center pt-5 bg-primary" id="cover">
     <div class="container">
       <div class="row">
         <div class="col-md-8 text-md-left align-self-center my-5">
           <h1 class="text-white display-1"> </h1>
-          <h1 class="text-white text-center display-3">CONVOCATORIAS</h1>
-          <p class="lead text-white text-center">Encuentra la convocatoria que tanto estas buscando</p>
+          <h1 class="text-white text-center display-4">ADMINISTRACION DE
+            <br>CONVOCATORIAS</h1>
           <div class="row mt-5">
             <div class="col-md-5 col-6">
               <a href="#download"></a>
@@ -41,21 +38,38 @@
         </form>
         <ul class="navbar-nav mr-auto"> </ul>
       </div>
-      <a class="btn btn-outline-primary" href="#">Iniciar Sesion</a>
+      <a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
     </div>
   </nav>
+  <div class="py-5 section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-4 text-primary">ESTADO DE CONVOCATORIAS</h1>
+          <hr> </div>
+      </div>
+    </div>
+  </div>
   <div class="py-5  section">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <img src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png" class="img-fluid mx-auto rounded-circle"> </div>
         <div class="col-md-7">
           <h1 class="text-primary">Convocatoria 1</h1>
           <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
             pretium quis, sem.</p>
         </div>
-        <div class="col-md-2 text-center" id="centrar">
-          <a href="#" class="btn btn-outline-primary center-block ">Ver Convocatoria</a>
+        <div class="col-md-3 text-center" id="centrar">
+          <a href="#" class="btn btn-outline-primary center-block disabled mx-3">Editar</a>
+          <div class="btn-group bg-success">
+            <button class="btn btn-outline-primary dropdown-toggle text-white" data-toggle="dropdown"> Autorizada </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -74,18 +88,6 @@
               <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">»</span> <span class="sr-only">Next</span> </a>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 section bg-faded" id="download">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img class="img-fluid d-block mx-auto" src="http://servicios.ucuauhtemoc.edu.mx/site/images/logos_descargas/logo_nuevo_uca.jpg"> </div>
-        <div class="col-md-6">
-          <h1 class="">"ENCUENTRA LA MEJOR CONVOCATORIA"</h1>
-          <a target="blank"><i class="fa fa-fw fa-check-square-o text-primary fa-3x"></i></a>
         </div>
       </div>
     </div>
@@ -121,7 +123,6 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
   <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
-  <script src="https://pingendo.com/assets/scripts/smooth-scroll.js"></script>
 </body>
 
 </html>
