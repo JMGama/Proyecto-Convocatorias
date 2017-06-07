@@ -5909,3 +5909,6 @@ body > * {
 
 #centrar {
   margin: auto; }
+
+.redondo {
+  border-radius: 3px; }
