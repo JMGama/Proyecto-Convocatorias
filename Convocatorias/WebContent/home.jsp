@@ -25,23 +25,26 @@
 					<h4 class="modal-title" id="centrar">Iniciar Sesion</h4>
 					<button class="close" data-dismiss="modal" type="button">×</button>
 				</div>
-				<div class="modal-body">
-					<form class="">
+				<form class="" method="post" action="LoginServlet">
+					<div class="modal-body">
+
 						<div class="form-group text-left" id="userDiv">
-							<label class="">Usuario</label> <input id="user" type="email"
-								class="form-control"
-								placeholder="Ingresa tu usuario">
+							<label class="">Usuario</label> <input id="user" type="text"
+								class="form-control" placeholder="Ingresa tu usuario"
+								name="usuario">
 						</div>
 						<div class="form-group text-left" id="passDiv">
 							<label>Contraseña</label> <input id="pass" type="password"
-								class="form-control" placeholder="Ingresa tu contraseña">
+								class="form-control" placeholder="Ingresa tu contraseña"
+								name="password">
 						</div>
-					</form>
-				</div>
-				<div class="modal-footer bg-faded">
-					<a class="btn btn-default active" data-dismiss="modal">Cancelar</a>
-					<a class="btn btn-primary text-white">Iniciar</a>
-				</div>
+
+					</div>
+					<div class="modal-footer bg-faded">
+						<a class="btn btn-default active" data-dismiss="modal">Cancelar</a>
+						<button class="btn btn-primary btn-send text-white" type="submit">Iniciar</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -186,15 +189,23 @@
 	<script
 		src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
 	<script src="https://pingendo.com/assets/scripts/smooth-scroll.js"></script>
-	
+
 	<script type="text/javascript">
-		if ( $('#msjErrorUser').val() != "" ) {
-			$('#user').attr('class','form-control form-control-danger' );
-			$('#userDiv').attr('class','form-group text-left has-danger' );
+		if ($('#msjErrorUser').val() == "1") {
+			$('#login-modal').modal();
+			$('#user').attr('class', 'form-control form-control-danger');
+			$('#userDiv').attr('class', 'form-group text-left has-danger');
+		}else if ($('#msjErrorUser').val() != ""){
+			$('#login-modal').modal();
+			$('#user').val($('#msjErrorUser').val());
+			$('#user').attr('class', 'form-control form-control-success');
+			$('#userDiv').attr('class', 'form-group text-left has-success');
 		}
-		if ( $('#msjErrorPass').val() != "" ) {
-			$('#pass').attr('class','form-control form-control-danger' );
-			$('#passDiv').attr('class','form-group text-left has-danger' );
+		
+		if ($('#msjErrorPass').val() == "1") {
+			$('#login-modal').modal();
+			$('#pass').attr('class', 'form-control form-control-danger');
+			$('#passDiv').attr('class', 'form-group text-left has-danger');
 		}
 	</script>
 </body>
