@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- En este documento creamos la referencia del objeto Usuario y su Tabla 
+	en la BD -->
+<hibernate-mapping>
+	<class name="com.nt.domain.Usuario" table="USUARIO">
+		<id name="idUsuario" column="ID_USUARIO" />
+		<property name="nombre" column="NOMBRE" />
+		<property name="apellidoPaterno" column="APELLIDO_PATERNO" />
+		<property name="apellidoMaterno" column="APELLIDO_MATERNO" />
+		<property name="telefono" column="TELEFONO" />
+		<property name="tipoUsuario" column="TIPO_USUARIO" />
+		<property name="usuario" column="USUARIO" />
+		<property name="password" column="PASSWORD" />
+	</class>
+</hibernate-mapping>
