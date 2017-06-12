@@ -195,13 +195,13 @@
 			$('#login-modal').modal();
 			$('#user').attr('class', 'form-control form-control-danger');
 			$('#userDiv').attr('class', 'form-group text-left has-danger');
-		}else if ($('#msjErrorUser').val() != ""){
+		} else if ($('#msjErrorUser').val() != "") {
 			$('#login-modal').modal();
 			$('#user').val($('#msjErrorUser').val());
 			$('#user').attr('class', 'form-control form-control-success');
 			$('#userDiv').attr('class', 'form-group text-left has-success');
 		}
-		
+
 		if ($('#msjErrorPass').val() == "1") {
 			$('#login-modal').modal();
 			$('#pass').attr('class', 'form-control form-control-danger');
