@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-						<form action="" method="post">
+						<form action="NuevaConvServlet" method="post">
 							<div class="card-block" id="form">
 								<div class="form-group">
 									<h3>Datos de la convocatoria</h3>
@@ -121,6 +121,18 @@
 												name="responsableConv">
 										</div>
 									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label for="usr" class="">Fecha de inicio:</label> <input
+												type="date" class="form-control" id="usr"
+												name="fechaInicioConv">
+										</div>
+										<div class="col-md-6">
+											<label for="usr" class="">Fecha de cierre:</label> <input
+												type="date" class="form-control" id="usr"
+												name="fechaFinalConv">
+										</div>
+									</div>
 								</div>
 								<div class="form-group">
 									<h3>Redes Sociales (Enlaces)</h3>
@@ -175,8 +187,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<p class="text-left lead">¿Quieres estar al tanto de las
-						nuevas convocatorias? Suscribete y te mantendremos informado.</p>
+					<p class="text-left lead">¿Quieres estar al tanto de las nuevas
+						convocatorias? Suscribete y te mantendremos informado.</p>
 					<form class="form-inline">
 						<div class="form-group">
 							<input type="email" class="form-control"

@@ -39,4 +39,14 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/AdminServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NuevaConvServlet</display-name>
+    <servlet-name>NuevaConvServlet</servlet-name>
+    <servlet-class>controller.NuevaConvServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevaConvServlet</servlet-name>
+    <url-pattern>/NuevaConvServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
