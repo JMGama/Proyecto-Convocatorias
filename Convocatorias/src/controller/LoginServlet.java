@@ -15,6 +15,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.nt.domain.Usuario;
 
+import dao.ConvocatoriaDao;
 import dao.UsuariosDao;
 
 public class LoginServlet extends HttpServlet {
@@ -50,14 +51,20 @@ public class LoginServlet extends HttpServlet {
 			if(!user.getPassword().equals(password) && !user.getUsuario().equals(usuario)){
 				request.setAttribute("msjErrorUser", "1");
 				request.setAttribute("msjErrorPass", "1");
+				ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
+				request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
 				forward = "/home.jsp";
 			}else if(!user.getPassword().equals(password) && user.getUsuario().equals(usuario)){
 				request.setAttribute("msjErrorUser", usuario);
 				request.setAttribute("msjErrorPass", "1");
+				ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
+				request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
 				forward = "/home.jsp";
 			}else if(user.getPassword().equals(password) && !user.getUsuario().equals(usuario)){
 				request.setAttribute("msjErrorUser", "1");
 				request.setAttribute("msjErrorPass", "");
+				ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
+				request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
 				forward = "/home.jsp";
 			}else if (user.getPassword().equals(password) && user.getUsuario().equals(usuario)){
 				request.setAttribute("msjErrorUser", "");

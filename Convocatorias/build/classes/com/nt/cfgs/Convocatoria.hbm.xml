@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- En este documento creamos la referencia del objeto Usuario y su Tabla 
+	en la BD -->
+<hibernate-mapping>
+	<class name="com.nt.domain.Convocatoria" table="CONVOCATORIA">
+		<id name="idConvocatoria" type="int" column="ID_CONVOCATORIA">
+			<generator class="sequence">
+				<param name="sequence">incremento_id_convocatoria</param>
+			</generator>
+		</id>
+		<property name="titulo" column="TITULO" />
+		<property name="objetivo" column="OBJETIVO" />
+		<property name="fechaInicial" column="FECHA_INICIAL" />
+		<property name="fechaFinal" column="FECHA_FINAL" />
+		<property name="requisitos" column="REQUISITOS" />
+		<property name="bases" column="BASES" />
+		<property name="estado" column="ESTADO" />
+		<property name="telefono" column="TELEFONO" />
+		<property name="correo" column="CORREO" />
+		<property name="paginaWeb" column="PAGINA_WEB" />
+		<property name="direccion" column="DIRECCION" />
+		<property name="responsable" column="RESPONSABLE" />
+		<property name="facebook" column="FACEBOOK" />
+		<property name="twitter" column="TWITTER" />
+		<property name="youtube" column="YOUTUBE" />
+		<property name="instagram" column="INSTAGRAM" />
+	</class>
+</hibernate-mapping>

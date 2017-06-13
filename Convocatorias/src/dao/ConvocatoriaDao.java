@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -40,5 +42,19 @@ public class ConvocatoriaDao {
 			cerrarSesion();
 		}
 		return false;
+	}
+	
+	public List<Convocatoria> getAllConvocatorias(){
+		List<Convocatoria> lista = null;
+		try {
+			abrirSesion();
+			lista = ses.createCriteria(Convocatoria.class).list();
+			cerrarSesion();
+			return lista;
+		} catch (Exception e) {
+			e.printStackTrace();
+			cerrarSesion();
+		}
+		return lista;
 	}
 }

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ConvocatoriaDao;
+
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,6 +25,9 @@ public class IndexServlet extends HttpServlet {
 		
 		request.setAttribute("msjErrorUser", "");
 		request.setAttribute("msjErrorPass", "");
+		
+		ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
+		request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
 		
 		forward = "/home.jsp";
 		

@@ -68,3 +68,8 @@ $spacer: 1.5rem;
 .redondo {
   border-radius: 3px;
 }
+.objetivo {
+	height:20px;
+	text-overflow:ellipsis;
+	white-space:nowrap; 
+	overflow:hidden; }
