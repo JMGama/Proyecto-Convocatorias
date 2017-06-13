@@ -12,7 +12,7 @@ public class Convocatoria {
 	private String requisitos;
 	private String bases;
 	private String estado;
-	private double telefono;
+	private String telefono;
 	private String correo;
 	private String paginaWeb;
 	private String direccion;
@@ -69,10 +69,10 @@ public class Convocatoria {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public double getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(double telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public String getCorreo() {
