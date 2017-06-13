@@ -11,5 +11,6 @@
 		<property name="connection.password">password</property>
 		<!-- Mapping file -->
 		<mapping resource="com/nt/cfgs/Usuario.hbm.xml" />
+		<mapping resource="com/nt/cfgs/Convocatoria.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

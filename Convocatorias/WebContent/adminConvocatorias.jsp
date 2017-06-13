@@ -56,6 +56,10 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 		</div>
+		<form action="AdminServlet" method="get">
+			<button class="btn btn-warning mr-4" type="submit" meth>Nueva
+				Convocatoria</button>
+		</form>
 		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
 	</div>
 	</nav>

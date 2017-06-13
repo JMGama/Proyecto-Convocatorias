@@ -17,7 +17,7 @@
 				<div class="col-md-8 text-md-left align-self-center my-5">
 					<h1 class="text-white display-1"></h1>
 					<h1 class="text-white text-center display-4">
-						NUEVA&nbsp; <br>CONVOCATORIA
+						NUEVA <br>CONVOCATORIA
 					</h1>
 					<div class="row mt-5">
 						<div class="col-md-5 col-6">
@@ -36,7 +36,9 @@
 	</div>
 	<nav class="navbar navbar-expand-md navbar-light bg-faded">
 	<div class="container">
-		<a class="btn btn-outline-danger" href="#">Cancelar</a>
+		<form action="AdminServlet" method="post">
+			<button class="btn btn-outline-danger" type="submit">Cancelar</button>
+		</form>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -55,100 +57,115 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-						<div class="card-block" id="form">
-							<div class="form-group">
-								<h3>Datos de la convocatoria</h3>
-								<hr>
-							</div>
-							<div class="form-group">
-								<label for="usr" class="">Nombre de convocatoria:</label> <input
-									type="text" class="form-control" id="usr">
-							</div>
-							<div class="form-group">
-								<label for="comment" class="">Objetivo de convocatoria:</label>
-								<textarea class="form-control" rows="5" id="comment"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="comment" class="">Bases de la convocatoria:</label>
-								<textarea class="form-control" rows="15" id="comment"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="comment" class="">Requisitos de la
-									convocatoria:</label>
-								<textarea class="form-control" rows="5" id="comment"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="comment" class="">Logotipo de la
-									convocatoria (PNG o JPG):</label> <input type="file" id="comment"
-									class="form-control-file">
-							</div>
-							<div class="form-group">
-								<h3>Informes de la convocatoria</h3>
-								<hr>
-							</div>
-							<div class="form-group">
+						<form action="" method="post">
+							<div class="card-block" id="form">
+								<div class="form-group">
+									<h3>Datos de la convocatoria</h3>
+									<hr>
+								</div>
+								<div class="form-group">
+									<label for="usr" class="">Titulo de convocatoria:</label> <input
+										type="text" class="form-control" id="usr" name="tituloConv">
+								</div>
+								<div class="form-group">
+									<label for="comment" class="">Objetivo de convocatoria:</label>
+									<textarea class="form-control" rows="5" id="comment"
+										name="objetivoConv"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="comment" class="">Bases de la convocatoria:</label>
+									<textarea class="form-control" rows="15" id="comment"
+										name="basesConv"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="comment" class="">Requisitos de la
+										convocatoria:</label>
+									<textarea class="form-control" rows="5" id="comment"
+										name="requisitosConv"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="comment" class="">Logotipo de la
+										convocatoria (PNG o JPG):</label> <input type="file" id="comment"
+										class="form-control-file" name="logotipoConv">
+								</div>
+								<div class="form-group">
+									<h3>Informes de la convocatoria</h3>
+									<hr>
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-3">
+											<label for="usr" class="">Telefono:</label> <input
+												type="text" class="form-control" id="usr"
+												name="telefonoConv">
+										</div>
+										<div class="col-md-4">
+											<label for="usr" class="">Correo:</label> <input type="text"
+												class="form-control" id="usr" name="correoConv">
+										</div>
+										<div class="col-md-5">
+											<label for="usr" class="">Pagina Web:</label> <input
+												type="text" class="form-control" id="usr"
+												name="paginawebConv">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-7">
+											<label for="usr" class="">Direccion:</label> <input
+												type="text" class="form-control" id="usr"
+												name="direccionConv">
+										</div>
+										<div class="col-md-5">
+											<label for="usr" class="">Responsable:</label> <input
+												type="text" class="form-control" id="usr"
+												name="responsableConv">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<h3>Redes Sociales (Enlaces)</h3>
+									<hr>
+								</div>
 								<div class="row">
 									<div class="col-md-3">
-										<label for="usr" class="">Telefono:</label> <input type="text"
-											class="form-control" id="usr">
+										<label for="usr"><i
+											class="fa fa-fw fa-facebook-square text-gray-dark fa-lg"></i>Facebook</label>
+										<input type="text" class="form-control" id="usr"
+											name="facebookConv">
 									</div>
-									<div class="col-md-4">
-										<label for="usr" class="">Correo:</label> <input type="text"
-											class="form-control" id="usr">
+									<div class="col-md-3">
+										<label for="usr"><i
+											class="fa fa-fw text-gray-dark fa-lg fa-twitter-square"></i>Twitter</label>
+										<input type="text" class="form-control" id="usr"
+											name="twitterConv">
 									</div>
-									<div class="col-md-5">
-										<label for="usr" class="">Pagina Web:</label> <input
-											type="text" class="form-control" id="usr">
+									<div class="col-md-3">
+										<label for="usr"><i
+											class="fa fa-fw text-gray-dark fa-lg fa-youtube-play"></i>Youtube</label>
+										<input type="text" class="form-control" id="usr"
+											name="youtubeConv">
+									</div>
+									<div class="col-md-3">
+										<label for="usr"><i
+											class="fa fa-fw text-gray-dark fa-lg fa-instagram"></i>Instagram</label>
+										<input type="text" class="form-control" id="usr"
+											name="instagramConv">
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-7">
-										<label for="usr" class="">Direccion:</label> <input
-											type="text" class="form-control" id="usr">
-									</div>
-									<div class="col-md-5">
-										<label for="usr" class="">Responsable:</label> <input
-											type="text" class="form-control" id="usr">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<h3>Redes Sociales (Enlaces)</h3>
-								<hr>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<label for="usr"><i
-										class="fa fa-fw fa-facebook-square text-gray-dark fa-lg"></i>Facebook</label>
-									<input type="text" class="form-control" id="usr">
-								</div>
-								<div class="col-md-3">
-									<label for="usr"><i
-										class="fa fa-fw text-gray-dark fa-lg fa-twitter-square"></i>Twitter</label>
-									<input type="text" class="form-control" id="usr">
-								</div>
-								<div class="col-md-3">
-									<label for="usr"><i
-										class="fa fa-fw text-gray-dark fa-lg fa-youtube-play"></i>Youtube</label>
-									<input type="text" class="form-control" id="usr">
-								</div>
-								<div class="col-md-3">
-									<label for="usr"><i
-										class="fa fa-fw text-gray-dark fa-lg fa-instagram"></i>Instagram</label>
-									<input type="text" class="form-control" id="usr">
-								</div>
-							</div>
-							<div class="form-group"></div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-5"></div>
-									<div class="col-md-4">
-										<a class="btn btn-outline-danger active" href="#">Reiniciar</a>
-										<a class="btn btn-outline-success active" href="#">Finalizar</a>
+								<div class="form-group"></div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-5"></div>
+										<div class="col-md-4">
+											<button type="reset" class="btn btn-outline-danger active"
+												href="#">Reiniciar</button>
+											<button type="submit" class="btn btn-outline-success active"
+												href="#">Finalizar</button>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -158,7 +175,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<p class="text-left lead">Â¿Quieres estar al tanto de las
+					<p class="text-left lead">¿Quieres estar al tanto de las
 						nuevas convocatorias? Suscribete y te mantendremos informado.</p>
 					<form class="form-inline">
 						<div class="form-group">
@@ -185,7 +202,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 my-3">
-					<p>Â© Copyright 2017 JosÃ© Manuel Gama Estrada - All rights
+					<p>© Copyright 2017 José Manuel Gama Estrada - All rights
 						reserved.</p>
 				</div>
 			</div>

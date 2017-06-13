@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 			}else if (user.getPassword().equals(password) && user.getUsuario().equals(usuario)){
 				request.setAttribute("msjErrorUser", "");
 				request.setAttribute("msjErrorPass", "");
-				forward = "/adminConvocatorias.jsp";
+				forward = "/AdminServlet";
 			}
 			
 		} catch (Exception e) {
