@@ -5,12 +5,8 @@
 <!-- En este documento creamos la referencia del objeto Usuario y su Tabla 
 	en la BD -->
 <hibernate-mapping>
-	<class name="com.nt.domain.Convocatoria" table="CONVOCATORIA">
-		<id name="idConvocatoria" type="int" column="ID_CONVOCATORIA">
-			<generator class="sequence">
-				<param name="sequence">incremento_id_convocatoria</param>
-			</generator>
-		</id>
+	<class name="com.nt.domain.Convocatoria" table="CONVOCATORIA" schema="CONVOCATORIAS">
+		<id name="idConvocatoria" type="int" column="ID_CONVOCATORIA" />
 		<property name="titulo" column="TITULO" />
 		<property name="objetivo" column="OBJETIVO" />
 		<property name="fechaInicial" column="FECHA_INICIAL" />

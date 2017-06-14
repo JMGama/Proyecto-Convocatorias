@@ -34,11 +34,14 @@ public class ConvocatoriaDao {
 	public boolean addConvocatoria(Convocatoria convocatoria){
 		try {
 			abrirSesion();
+			Transaction tx = ses.beginTransaction();
 			ses.save(convocatoria);
+			tx.commit();
 			cerrarSesion();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			tx.rollback();
 			cerrarSesion();
 		}
 		return false;

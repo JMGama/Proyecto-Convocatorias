@@ -34,7 +34,7 @@ public class NuevaConvServlet extends HttpServlet {
 		convocatoria.setObjetivo(request.getParameter("objetivoConv"));
 		convocatoria.setBases(request.getParameter("basesConv"));
 		convocatoria.setRequisitos(request.getParameter("requisitosConv"));
-		convocatoria.setTelefono((request.getParameter("telefonoConv")));
+		convocatoria.setTelefono(Long.parseLong(request.getParameter("telefonoConv")));
 		convocatoria.setCorreo(request.getParameter("correoConv"));
 		convocatoria.setPaginaWeb(request.getParameter("paginawebConv"));
 		convocatoria.setDireccion(request.getParameter("direccionConv"));
@@ -43,6 +43,7 @@ public class NuevaConvServlet extends HttpServlet {
 		convocatoria.setTwitter(request.getParameter("twitterConv"));
 		convocatoria.setYoutube(request.getParameter("youtubeConv"));
 		convocatoria.setInstagram(request.getParameter("instagramConv"));
+		convocatoria.setEstado("Activo");
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
 		/*try {
