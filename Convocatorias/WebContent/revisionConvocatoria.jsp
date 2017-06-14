@@ -8,8 +8,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="CSS/nuevaConvocatoria.css" type="text/css">
-<link rel="stylesheet" href="CSS/nuevaConvocatoria.scss" type="text/css">
+<link rel="stylesheet" href="CSS/revisionConvocatoria.css"
+	type="text/css">
+<link rel="stylesheet" href="CSS/revisionConvocatoria.scss"
+	type="text/css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
@@ -19,7 +21,7 @@
 				<div class="col-md-8 text-md-left align-self-center my-5">
 					<h1 class="text-white display-1"></h1>
 					<h1 class="text-white text-center display-4">
-						NUEVA <br>CONVOCATORIA
+						REVISION DE <br>CONVOCATORIA
 					</h1>
 					<div class="row mt-5">
 						<div class="col-md-5 col-6">
@@ -61,9 +63,22 @@
 					<div class="card">
 						<form action="NuevaConvServlet" method="post">
 							<div class="card-block" id="form">
-								<div class="form-group">
-									<h3>Datos de la convocatoria</h3>
-									<hr>
+								<div class="form-group row">
+									<div class="col-md-11">
+										<h3>Datos de la convocatoria</h3>
+										<div class="hidden bg-warning" id="divDatos"
+											style="display: none;">
+											<label for="comment" class="ml-1">Comentario:</label>
+											<textarea class="form-control" rows="5" id="comment"
+												name="objetivoConv"></textarea>
+										</div>
+										<hr>
+									</div>
+									<div class="col-md-1">
+										<a id="datosComent" class="btn btn-warning text-white"> <i
+											class="d-block mx-auto fa fa-1x fa-comments"></i>
+										</a> <input type="hidden" name="datosComentario" value="0">
+									</div>
 								</div>
 								<div class="form-group">
 									<label for="usr" class="">Titulo de convocatoria:</label> <input
@@ -90,9 +105,22 @@
 										convocatoria (PNG o JPG):</label> <input type="file" id="comment"
 										class="form-control-file" name="logotipoConv">
 								</div>
-								<div class="form-group">
-									<h3>Informes de la convocatoria</h3>
-									<hr>
+								<div class="form-group row">
+									<div class="col-md-11">
+										<h3>Informes de la convocatoria</h3>
+										<div class="hidden bg-warning" id="divInformes"
+											style="display: none;">
+											<label for="comment" class="ml-1">Comentario:</label>
+											<textarea class="form-control" rows="5" id="comment"
+												name="objetivoConv"></textarea>
+										</div>
+										<hr>
+									</div>
+									<div class="col-md-1">
+										<a id="informesComent" class="btn btn-warning text-white">
+											<i class="d-block mx-auto fa fa-1x fa-comments"></i>
+										</a> <input type="hidden" name="informesComentario" value="0">
+									</div>
 								</div>
 								<div class="form-group">
 									<div class="row">
@@ -136,9 +164,22 @@
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<h3>Redes Sociales (Enlaces)</h3>
-									<hr>
+								<div class="form-group row">
+									<div class="col-md-11">
+										<h3>Redes sociales(Enlaces)</h3>
+										<div class="hidden bg-warning" id="divRedes"
+											style="display: none;">
+											<label for="comment" class="ml-1">Comentario:</label>
+											<textarea class="form-control" rows="5" id="comment"
+												name="objetivoConv"></textarea>
+										</div>
+										<hr>
+									</div>
+									<div class="col-md-1">
+										<a id="redesComent" class="btn btn-warning text-white"> <i
+											class="d-block mx-auto fa fa-1x fa-comments"></i>
+										</a> <input type="hidden" name="redesComentario" value="0">
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-3">
@@ -232,5 +273,15 @@
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 		crossorigin="anonymous"></script>
 </body>
-
+<script type="text/javascript">
+	$("#datosComent").click(function() {
+		$("#divDatos").toggle(500);
+	});
+	$("#informesComent").click(function() {
+		$("#divInformes").toggle(500);
+	});
+	$("#redesComent").click(function() {
+		$("#divRedes").toggle(500);
+	});
+</script>
 </html>

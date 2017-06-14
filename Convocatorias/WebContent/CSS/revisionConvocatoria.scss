@@ -33,7 +33,7 @@ $enable-print-styles:       true !default;
 //
 // Theme settings.
 
-$body-bg: white;
+
 $body-color: #454545;
 $body-color-inverse: invert($body-color) !default;
 $link-color: #00b0eb;
@@ -58,18 +58,18 @@ $border-radius: 0px;
 $border-radius-lg: $border-radius * 1.2;
 $border-radius-sm: $border-radius * .8;
 
-$spacer: 1.5rem;
+html,body {
+  scroll-behavior: smooth;
 
+}$body-bg: white;
 @import 'bootstrap-4.0.0-alpha.6';
 
-#centrar {
-	margin: auto;
+#form {
+	border-style: solid;
+  border-width: 1px;
+  border-color: #00b0eb;
 }
-.redondo {
-  border-radius: 3px;
+
+#nuevaConvocatoria {
+	margin-left: 5px; 
 }
-.objetivo {
-	height:20px;
-	text-overflow:ellipsis;
-	white-space:nowrap; 
-	overflow:hidden; }

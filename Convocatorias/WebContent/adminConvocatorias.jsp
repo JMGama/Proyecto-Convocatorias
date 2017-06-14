@@ -4,6 +4,9 @@
 <html>
 
 <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -65,34 +68,38 @@
 	</nav>
 	<div class="py-5  section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<img
-						src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
-						class="img-fluid mx-auto rounded-circle">
-				</div>
-				<div class="col-md-7">
-					<h1 class="text-primary">Convocatoria 1</h1>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetuer
-						adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-						Cum sociis natoque penatibus et magnis dis parturient montes,
-						nascetur ridiculus mus. Donec quam felis, ultricies nec,
-						pellentesque eu, pretium quis, sem.</p>
-				</div>
-				<div class="col-md-3 text-center" id="centrar">
-					<a href="#"
-						class="btn btn-outline-primary center-block disabled mx-3">Editar</a>
-					<div class="btn-group bg-success">
-						<button class="btn btn-outline-primary dropdown-toggle text-white"
-							data-toggle="dropdown">Autorizada</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
+			<c:forEach items="${convocatorias}" var="convocatoria">
+				<div class="row">
+					<div class="col-md-2">
+						<img
+							src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
+							class="img-fluid mx-auto rounded-circle">
+					</div>
+					<div class="col-md-7">
+						<h1 class="text-primary">
+							<c:out value="${convocatoria.titulo}" />
+						</h1>
+						<p class="lead">
+							<c:out value="${fn:substring(convocatoria.objetivo, 0, 280)}" />
+						</p>
+					</div>
+					<div class="col-md-3 text-center" id="centrar">
+						<a href="#"
+							class="btn btn-outline-primary center-block disabled mx-3">Editar</a>
+						<div class="btn-group bg-success">
+							<button
+								class="btn btn-outline-primary dropdown-toggle text-white"
+								data-toggle="dropdown">Autorizada</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">Action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Separated link</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<hr>
+			</c:forEach>
 			<div class="row">
 				<div class="col-md-1 text-center" id="centrar">
 					<ul class="pagination pagination-sm text-center">

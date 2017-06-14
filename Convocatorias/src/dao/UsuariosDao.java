@@ -48,6 +48,7 @@ public class UsuariosDao {
 						user = (Usuario) query.list().get(0);
 				 }
 			}
+			cerrarSesion();
 		} catch (Exception e) {
 			e.printStackTrace();
 			cerrarSesion();

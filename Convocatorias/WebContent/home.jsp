@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="CSS/home.css" type="text/css">
@@ -17,7 +20,7 @@
 %>
 <input type="hidden" id="msjErrorUser" value="<%=msjErrorUser%>">
 <input type="hidden" id="msjErrorPass" value="<%=msjErrorPass%>">
-<body class="text-center">
+<body class="">
 	<div class="modal" id="login-modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -94,25 +97,28 @@
 	</nav>
 	<div class="py-5  section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<img
-						src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
-						class="img-fluid mx-auto rounded-circle">
+			<c:forEach items="${convocatorias}" var="convocatoria">
+				<div class="row">
+					<div class="col-md-2">
+						<img
+							src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
+							class="img-fluid mx-auto rounded-circle">
+					</div>
+					<div class="col-md-7">
+						<h1 class="text-primary">
+							<c:out value="${convocatoria.titulo}" />
+						</h1>
+						<p class="lead">
+							<c:out value="${fn:substring(convocatoria.objetivo, 0, 280)}" />
+						</p>
+					</div>
+					<div class="col-md-2 text-center" id="centrar">
+						<a href="#" class="btn btn-outline-primary center-block active">Ver
+							Convocatoria</a>
+					</div>
 				</div>
-				<div class="col-md-7">
-					<h1 class="text-primary">Convocatoria 1</h1>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetuer
-						adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-						Cum sociis natoque penatibus et magnis dis parturient montes,
-						nascetur ridiculus mus. Donec quam felis, ultricies nec,
-						pellentesque eu, pretium quis, sem.</p>
-				</div>
-				<div class="col-md-2 text-center" id="centrar">
-					<a href="#" class="btn btn-outline-primary center-block active">Ver
-						Convocatoria</a>
-				</div>
-			</div>
+				<hr>
+			</c:forEach>
 			<div class="row">
 				<div class="col-md-1 text-center" id="centrar">
 					<ul class="pagination pagination-sm text-center">
@@ -131,7 +137,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="py-5 section bg-faded" id="download">
+	<div class="py-5 section bg-faded text-center" id="download">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">

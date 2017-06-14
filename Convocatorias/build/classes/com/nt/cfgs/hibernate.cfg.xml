@@ -9,8 +9,11 @@
 		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 		<property name="connection.username">Convocatorias</property>
 		<property name="connection.password">password</property>
+		<property name="hibernate.jdbc.use_get_generated_keys">true</property>
+		
 		<!-- Mapping file -->
 		<mapping resource="com/nt/cfgs/Usuario.hbm.xml" />
 		<mapping resource="com/nt/cfgs/Convocatoria.hbm.xml" />
+		
 	</session-factory>
 </hibernate-configuration>
