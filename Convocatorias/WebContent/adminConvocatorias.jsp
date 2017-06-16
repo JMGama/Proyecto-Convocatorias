@@ -19,6 +19,23 @@
 <title>Administracion Convocatorias</title>
 </head>
 <body>
+	<%
+		String mensaje = (String) request.getAttribute("mensaje");
+	%>
+	<input type="hidden" id="mensaje" value=<%=mensaje%> />
+	<nav class=" hidden navbar navbar-expand-md navbar-light bg-success"
+		id="mensajeDiv" style="display: none;">
+	<div class="container row">
+		<div class=col-md-6></div>
+		<div class="col-md-5">
+			<h4>La convocatoria fue autorizada con exito</h4>
+		</div>
+		<div class="col-md-1">
+			<i class="d-block mx-auto fa fa-3x fa-check-square-o"></i>
+		</div>
+
+	</div>
+	</nav>
 	<div class="cover d-flex align-items-center pt-5 bg-primary" id="cover">
 		<div class="container">
 			<div class="row">
@@ -60,10 +77,18 @@
 			</ul>
 		</div>
 		<form action="AdminServlet" method="get">
-			<button class="btn btn-warning mr-4" type="submit" meth>Nueva
+			<button class="btn btn-warning mr-4" type="submit">Nueva
 				Convocatoria</button>
 		</form>
-		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
+		<form action="AdminServlet" method="post">
+			<button class="btn btn-primary mr-4" type="submit">
+				<i class="d-block mx-auto fa fa-1x fa-refresh"></i>
+			</button>
+		</form>
+		<form action="LoginServlet" method="get">
+			<button class="btn btn-outline-primary" type="submit">Cerrar
+				Sesion</button>
+		</form>
 	</div>
 	</nav>
 	<div class="py-5  section">
@@ -84,18 +109,45 @@
 						</p>
 					</div>
 					<div class="col-md-3 text-center" id="centrar">
-						<a href="#"
-							class="btn btn-outline-primary center-block disabled mx-3">Editar</a>
-						<div class="btn-group bg-success">
-							<button
-								class="btn btn-outline-primary dropdown-toggle text-white"
-								data-toggle="dropdown">Autorizada</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Separated link</a>
+						<form action="RevisionConServlet" method="get">
+							<input type="hidden" name="idConvocatoria"
+								value="${convocatoria.idConvocatoria}">
+							<c:choose>
+								<c:when test="${convocatoria.estado =='Autorizada'}">
+									<a href="#"
+										class="btn btn-outline-primary center-block disabled mx-3">Revisar</a>
+								</c:when>
+								<c:when test="${convocatoria.estado =='Correccion'}">
+									<button type="submit"
+										class="btn btn-primary center-block  mx-3">Corregir</button>
+									<input type="hidden" name="action" value="corregir" />
+								</c:when>
+								<c:otherwise>
+									<button type="submit" class="btn btn-primary center-block mx-3">Revisar</button>
+									<input type="hidden" name="action" value="revisar" />
+								</c:otherwise>
+							</c:choose>
+
+							<div class="btn-group ">
+								<c:choose>
+									<c:when test="${convocatoria.estado == 'Autorizada'}">
+										<a class="btn btn-success text-white"> <c:out
+												value="${convocatoria.estado}" />
+										</a>
+									</c:when>
+									<c:when test="${convocatoria.estado == 'Correccion'}">
+										<a class="btn btn-warning text-white"> <c:out
+												value="${convocatoria.estado}" />
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a class="btn btn-danger text-white"> <c:out
+												value="${convocatoria.estado}" />
+										</a>
+									</c:otherwise>
+								</c:choose>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 				<hr>
@@ -161,5 +213,12 @@
 	<script
 		src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
 </body>
-
+<script type="text/javascript">
+	if ($("#mensaje").val() == "1") {
+		$("#mensajeDiv").show(500);
+		setTimeout(function() {
+			$("#mensajeDiv").hide(500);
+		}, 5000);
+	}
+</script>
 </html>

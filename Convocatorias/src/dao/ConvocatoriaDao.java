@@ -19,15 +19,18 @@ public class ConvocatoriaDao {
 	public ConvocatoriaDao() {
 		cfg = new Configuration();
 		cfg = cfg.configure("/com/nt/cfgs/hibernate.cfg.xml");
+		factory = cfg.buildSessionFactory();
 	}
 
 	public void abrirSesion() {
-		factory = cfg.buildSessionFactory();
 		ses = factory.openSession();
 	}
 
 	public void cerrarSesion() {
 		ses.close();
+	}
+	
+	public void cerrarfactory(){
 		factory.close();
 	}
 	
@@ -59,5 +62,37 @@ public class ConvocatoriaDao {
 			cerrarSesion();
 		}
 		return lista;
+	}
+	
+	public Convocatoria getConvocatoria(int id){
+		Convocatoria convocatoria = new Convocatoria();
+		try {
+			abrirSesion();
+			Transaction tx = ses.beginTransaction();
+			convocatoria = (Convocatoria) ses.get(Convocatoria.class, id);
+			tx.commit();
+			cerrarSesion();
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+			cerrarSesion();
+		}
+		return convocatoria;
+	}
+	
+	public boolean updateConvocatoria(Convocatoria convocatoria){
+		try {
+			abrirSesion();
+			Transaction tx = ses.beginTransaction();
+			ses.update(convocatoria);
+			tx.commit();
+			cerrarSesion();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+			cerrarSesion();
+		}
+		return false;
 	}
 }

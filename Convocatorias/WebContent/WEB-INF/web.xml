@@ -49,4 +49,14 @@
     <servlet-name>NuevaConvServlet</servlet-name>
     <url-pattern>/NuevaConvServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RevisionConServlet</display-name>
+    <servlet-name>RevisionConServlet</servlet-name>
+    <servlet-class>controller.RevisionConServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RevisionConServlet</servlet-name>
+    <url-pattern>/RevisionConServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

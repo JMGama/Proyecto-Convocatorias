@@ -27,8 +27,19 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String forward = "";
+		
+		request.setAttribute("msjErrorUser", "");
+		request.setAttribute("msjErrorPass", "");
+		
+		ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
+		request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
+		
+		forward = "/home.jsp";
+		
+		RequestDispatcher view = request.getRequestDispatcher(forward);
+		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("msjErrorPass", "");
 				forward = "/AdminServlet";
 			}
-			
+			usuarioDao.cerrarfactory();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

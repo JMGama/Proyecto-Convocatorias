@@ -6,6 +6,7 @@
 <head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="CSS/revisionConvocatoria.css"
@@ -53,7 +54,10 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 		</div>
-		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
+		<form action="LoginServlet" method="get">
+			<button class="btn btn-outline-primary" type="submit">Cerrar
+				Sesion</button>
+		</form>
 	</div>
 	</nav>
 	<div class="py-5">
@@ -61,7 +65,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-						<form action="NuevaConvServlet" method="post">
+						<form action="RevisionConServlet" method="post" id="formulario">
 							<div class="card-block" id="form">
 								<div class="form-group row">
 									<div class="col-md-11">
@@ -70,35 +74,39 @@
 											style="display: none;">
 											<label for="comment" class="ml-1">Comentario:</label>
 											<textarea class="form-control" rows="5" id="comment"
-												name="objetivoConv"></textarea>
+												name="datosComentario" id="datosComentario"></textarea>
 										</div>
 										<hr>
 									</div>
 									<div class="col-md-1">
 										<a id="datosComent" class="btn btn-warning text-white"> <i
 											class="d-block mx-auto fa fa-1x fa-comments"></i>
-										</a> <input type="hidden" name="datosComentario" value="0">
+										</a>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="usr" class="">Titulo de convocatoria:</label> <input
-										type="text" class="form-control" id="usr" name="tituloConv">
+										type="text" class="form-control" id="usr" name="tituloConv"
+										value="<c:out value="${convocatoria.titulo}"/>" />
 								</div>
 								<div class="form-group">
 									<label for="comment" class="">Objetivo de convocatoria:</label>
 									<textarea class="form-control" rows="5" id="comment"
-										name="objetivoConv"></textarea>
+										name="objetivoConv"><c:out
+											value="${convocatoria.objetivo}" /></textarea>
 								</div>
 								<div class="form-group">
 									<label for="comment" class="">Bases de la convocatoria:</label>
 									<textarea class="form-control" rows="15" id="comment"
-										name="basesConv"></textarea>
+										name="basesConv"><c:out
+											value="${convocatoria.bases}" /></textarea>
 								</div>
 								<div class="form-group">
 									<label for="comment" class="">Requisitos de la
 										convocatoria:</label>
 									<textarea class="form-control" rows="5" id="comment"
-										name="requisitosConv"></textarea>
+										name="requisitosConv"><c:out
+											value="${convocatoria.requisitos}" /></textarea>
 								</div>
 								<div class="form-group">
 									<label for="comment" class="">Logotipo de la
@@ -112,55 +120,61 @@
 											style="display: none;">
 											<label for="comment" class="ml-1">Comentario:</label>
 											<textarea class="form-control" rows="5" id="comment"
-												name="objetivoConv"></textarea>
+												name="informesComentario" id="informesComentario"></textarea>
 										</div>
 										<hr>
 									</div>
 									<div class="col-md-1">
 										<a id="informesComent" class="btn btn-warning text-white">
 											<i class="d-block mx-auto fa fa-1x fa-comments"></i>
-										</a> <input type="hidden" name="informesComentario" value="0">
+										</a>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-3">
 											<label for="usr" class="">Telefono:</label> <input
-												type="text" class="form-control" id="usr"
-												name="telefonoConv">
+												type="number" class="form-control" id="usr"
+												name="telefonoConv"
+												value="<c:out value="${convocatoria.telefono}"/>">
 										</div>
 										<div class="col-md-4">
-											<label for="usr" class="">Correo:</label> <input type="text"
-												class="form-control" id="usr" name="correoConv">
+											<label for="usr" class="">Correo:</label> <input type="email"
+												class="form-control" id="usr" name="correoConv"
+												value="<c:out value="${convocatoria.correo}"/>">
 										</div>
 										<div class="col-md-5">
 											<label for="usr" class="">Pagina Web:</label> <input
 												type="text" class="form-control" id="usr"
-												name="paginawebConv">
+												name="paginawebConv"
+												value="<c:out value="${convocatoria.paginaWeb}"/>">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-7">
 											<label for="usr" class="">Direccion:</label> <input
 												type="text" class="form-control" id="usr"
-												name="direccionConv">
+												name="direccionConv"
+												value="<c:out value="${convocatoria.direccion}"/>">
 										</div>
 										<div class="col-md-5">
 											<label for="usr" class="">Responsable:</label> <input
 												type="text" class="form-control" id="usr"
-												name="responsableConv">
+												name="responsableConv"
+												value="<c:out value="${convocatoria.responsable}"/>">
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-6">
 											<label for="usr" class="">Fecha de inicio:</label> <input
 												type="date" class="form-control" id="usr"
-												name="fechaInicioConv">
+												name="fechaInicioConv"
+												value="<c:out value="${fechaInicial}"/>">
 										</div>
 										<div class="col-md-6">
 											<label for="usr" class="">Fecha de cierre:</label> <input
 												type="date" class="form-control" id="usr"
-												name="fechaFinalConv">
+												name="fechaFinalConv" value="<c:out value="${fechaFinal}"/>">
 										</div>
 									</div>
 								</div>
@@ -171,14 +185,14 @@
 											style="display: none;">
 											<label for="comment" class="ml-1">Comentario:</label>
 											<textarea class="form-control" rows="5" id="comment"
-												name="objetivoConv"></textarea>
+												name="redesComentario" id="redesComentario"></textarea>
 										</div>
 										<hr>
 									</div>
 									<div class="col-md-1">
 										<a id="redesComent" class="btn btn-warning text-white"> <i
 											class="d-block mx-auto fa fa-1x fa-comments"></i>
-										</a> <input type="hidden" name="redesComentario" value="0">
+										</a>
 									</div>
 								</div>
 								<div class="row">
@@ -186,40 +200,49 @@
 										<label for="usr"><i
 											class="fa fa-fw fa-facebook-square text-gray-dark fa-lg"></i>Facebook</label>
 										<input type="text" class="form-control" id="usr"
-											name="facebookConv">
+											name="facebookConv"
+											value="<c:out value="${convocatoria.facebook}"/>">
 									</div>
 									<div class="col-md-3">
 										<label for="usr"><i
 											class="fa fa-fw text-gray-dark fa-lg fa-twitter-square"></i>Twitter</label>
 										<input type="text" class="form-control" id="usr"
-											name="twitterConv">
+											name="twitterConv"
+											value="<c:out value="${convocatoria.twitter}"/>">
 									</div>
 									<div class="col-md-3">
 										<label for="usr"><i
 											class="fa fa-fw text-gray-dark fa-lg fa-youtube-play"></i>Youtube</label>
 										<input type="text" class="form-control" id="usr"
-											name="youtubeConv">
+											name="youtubeConv"
+											value="<c:out value="${convocatoria.youtube}"/>">
 									</div>
 									<div class="col-md-3">
 										<label for="usr"><i
 											class="fa fa-fw text-gray-dark fa-lg fa-instagram"></i>Instagram</label>
 										<input type="text" class="form-control" id="usr"
-											name="instagramConv">
+											name="instagramConv"
+											value="<c:out value="${convocatoria.instagram}"/>">
 									</div>
 								</div>
 								<div class="form-group"></div>
 								<div class="form-group">
 									<div class="row">
-										<div class="col-md-5"></div>
-										<div class="col-md-4">
+										<div class="col-md-4"></div>
+										<div class="col-md-5">
 											<button type="reset" class="btn btn-outline-danger active"
 												href="#">Reiniciar</button>
+											<button class="btn btn-outline-warning active"
+												onclick="corregir()" id="botonFin">Mandar a
+												correccion</button>
 											<button type="submit" class="btn btn-outline-success active"
-												href="#">Finalizar</button>
+												href="#" id="botonFin">Autorizar</button>
 										</div>
 									</div>
 								</div>
 							</div>
+							<input type="hidden" name="action" value="Autorizar" id="action">
+							<input type="hidden" name="idConvocatoria" value="<c:out value="${idConvocatoria}"/>">
 						</form>
 					</div>
 				</div>
@@ -283,5 +306,10 @@
 	$("#redesComent").click(function() {
 		$("#divRedes").toggle(500);
 	});
+	
+	function corregir() {
+		$("#action").val("Corregir");
+		document.getElementById("formulario").submit();
+	}
 </script>
 </html>

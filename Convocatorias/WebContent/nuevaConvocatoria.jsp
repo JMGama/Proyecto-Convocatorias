@@ -13,6 +13,18 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
+	<%
+		String mensaje = (String) request.getAttribute("mensaje");
+	%>
+	<input type="hidden" id="mensaje" value=<%=mensaje%> />
+	<nav class=" hidden navbar navbar-expand-md navbar-light bg-success" id="mensajeDiv" style="display: none;">
+	<div class="container row">
+			<div class=col-md-6></div>
+			<div class="col-md-5"><h4>La convocatoria fue creada con exito</h4></div>
+			<div class="col-md-1"><i class="d-block mx-auto fa fa-3x fa-check-square-o"></i></div>
+
+	</div>
+	</nav>
 	<div class="cover d-flex align-items-center pt-5 bg-primary" id="cover">
 		<div class="container">
 			<div class="row">
@@ -51,7 +63,9 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 		</div>
-		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
+		<form action="LoginServlet" method="get">
+			<button class="btn btn-outline-primary" type="submit">Cerrar Sesion</button>
+		</form>
 	</div>
 	</nav>
 	<div class="py-5">
@@ -232,5 +246,12 @@
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 		crossorigin="anonymous"></script>
 </body>
-
+<script type="text/javascript">
+	if ($("#mensaje").val() == "1") {
+		$("#mensajeDiv").show(500);
+		setTimeout(function() {
+			$("#mensajeDiv").hide(500);
+		},5000);
+	}
+</script>
 </html>

@@ -18,15 +18,18 @@ public class UsuariosDao {
 	public UsuariosDao() {
 		cfg = new Configuration();
 		cfg = cfg.configure("/com/nt/cfgs/hibernate.cfg.xml");
+		factory = cfg.buildSessionFactory();
 	}
 
 	public void abrirSesion() {
-		factory = cfg.buildSessionFactory();
 		ses = factory.openSession();
 	}
 
 	public void cerrarSesion() {
 		ses.close();
+	}
+	
+	public void cerrarfactory(){
 		factory.close();
 	}
 
