@@ -6,7 +6,9 @@
 	en la BD -->
 <hibernate-mapping>
 	<class name="com.nt.domain.Convocatoria" table="CONVOCATORIA" schema="CONVOCATORIAS">
-		<id name="idConvocatoria" type="int" column="ID_CONVOCATORIA" />
+		<id name="idConvocatoria" column="ID_CONVOCATORIA" type="integer">
+			<generator class="increment" />
+		</id>
 		<property name="titulo" column="TITULO" />
 		<property name="objetivo" column="OBJETIVO" />
 		<property name="fechaInicial" column="FECHA_INICIAL" />

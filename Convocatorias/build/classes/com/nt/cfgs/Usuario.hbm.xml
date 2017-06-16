@@ -6,7 +6,9 @@
 	en la BD -->
 <hibernate-mapping>
 	<class name="com.nt.domain.Usuario" table="USUARIO">
-		<id name="idUsuario" column="ID_USUARIO" />
+		<id name="idUsuario" column="ID_USUARIO" type="integer">
+			<generator class="increment" />
+		</id>
 		<property name="nombre" column="NOMBRE" />
 		<property name="apellidoPaterno" column="APELLIDO_PATERNO" />
 		<property name="apellidoMaterno" column="APELLIDO_MATERNO" />
