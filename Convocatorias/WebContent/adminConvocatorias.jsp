@@ -60,10 +60,13 @@
 			</ul>
 		</div>
 		<form action="AdminServlet" method="get">
-			<button class="btn btn-warning mr-4" type="submit" meth>Nueva
+			<button class="btn btn-warning mr-4" type="submit" >Nueva
 				Convocatoria</button>
 		</form>
-		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
+		<form action="LoginServlet" method="get">
+			<button class="btn btn-outline-primary" type="submit">Cerrar
+				Sesion</button>
+		</form>
 	</div>
 	</nav>
 	<div class="py-5  section">
@@ -84,17 +87,38 @@
 						</p>
 					</div>
 					<div class="col-md-3 text-center" id="centrar">
-						<a href="#"
-							class="btn btn-outline-primary center-block disabled mx-3">Editar</a>
-						<div class="btn-group bg-success">
-							<button
-								class="btn btn-outline-primary dropdown-toggle text-white"
-								data-toggle="dropdown">Autorizada</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">Action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Separated link</a>
-							</div>
+						<c:choose>
+							<c:when test="${convocatoria.estado =='Autorizada'}">
+								<a href="#"
+									class="btn btn-outline-primary center-block disabled mx-3">Revisar</a>
+							</c:when>
+							<c:when test="${convocatoria.estado =='Correccion'}">
+								<a href="#"
+									class="btn btn-primary center-block  mx-3">Corregir</a>
+							</c:when>
+							<c:otherwise>
+								<a href="#" class="btn btn-primary center-block mx-3">Revisar</a>
+							</c:otherwise>
+						</c:choose>
+
+						<div class="btn-group ">
+							<c:choose>
+								<c:when test="${convocatoria.estado == 'Autorizada'}">
+									<button class="btn btn-success ">
+										<c:out value="${convocatoria.estado}" />
+									</button>
+								</c:when>
+								<c:when test="${convocatoria.estado == 'Correccion'}">
+									<button class="btn btn-warning ">
+										<c:out value="${convocatoria.estado}" />
+									</button>
+								</c:when>
+								<c:otherwise>
+									<button class="btn btn-danger ">
+										<c:out value="${convocatoria.estado}" />
+									</button>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>

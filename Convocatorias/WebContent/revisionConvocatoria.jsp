@@ -53,7 +53,9 @@
 			<ul class="navbar-nav mr-auto">
 			</ul>
 		</div>
-		<a class="btn btn-outline-primary" href="#">Cerrar Sesion</a>
+		<form action="LoginServlet" method="get">
+			<button class="btn btn-outline-primary" type="submit">Cerrar Sesion</button>
+		</form>
 	</div>
 	</nav>
 	<div class="py-5">

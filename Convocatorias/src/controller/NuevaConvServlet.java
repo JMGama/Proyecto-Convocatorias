@@ -1,8 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,22 +45,22 @@ public class NuevaConvServlet extends HttpServlet {
 		convocatoria.setTwitter(request.getParameter("twitterConv"));
 		convocatoria.setYoutube(request.getParameter("youtubeConv"));
 		convocatoria.setInstagram(request.getParameter("instagramConv"));
-		convocatoria.setEstado("Activo");
+		convocatoria.setEstado("En revision");
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-		/*try {
-			convocatoria.setFechaInicial(formatter.parse(request.getParameter("fechaInicioConv")));
-			convocatoria.setFechaFinal(formatter.parse(request.getParameter("fechaFinalConv")));
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			convocatoria.setFechaInicial(dateFormat.parse(request.getParameter("fechaInicioConv")));
+			convocatoria.setFechaFinal(dateFormat.parse(request.getParameter("fechaFinalConv")));
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}*/
+		}
 		
 		
 		ConvocatoriaDao convocatoriaDao = new ConvocatoriaDao();
 		if (convocatoriaDao.addConvocatoria(convocatoria)) {
-			request.setAttribute("mensaje", "0");
-		}else{
 			request.setAttribute("mensaje", "1");
+		}else{
+			request.setAttribute("mensaje", "2");
 		}
 		
 		forward = "/nuevaConvocatoria.jsp";

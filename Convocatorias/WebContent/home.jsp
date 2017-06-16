@@ -98,26 +98,28 @@
 	<div class="py-5  section">
 		<div class="container">
 			<c:forEach items="${convocatorias}" var="convocatoria">
-				<div class="row">
-					<div class="col-md-2">
-						<img
-							src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
-							class="img-fluid mx-auto rounded-circle">
+				<c:if test="${convocatoria.estado == 'Autorizada'}">
+					<div class="row">
+						<div class="col-md-2">
+							<img
+								src="http://cie.up.edu.mx/sites/default/files/tipo-recurso-documento.png"
+								class="img-fluid mx-auto rounded-circle">
+						</div>
+						<div class="col-md-7">
+							<h1 class="text-primary">
+								<c:out value="${convocatoria.titulo}" />
+							</h1>
+							<p class="lead">
+								<c:out value="${fn:substring(convocatoria.objetivo, 0, 280)}" />
+							</p>
+						</div>
+						<div class="col-md-2 text-center" id="centrar">
+							<a href="#" class="btn btn-outline-primary center-block active">Ver
+								Convocatoria</a>
+						</div>
 					</div>
-					<div class="col-md-7">
-						<h1 class="text-primary">
-							<c:out value="${convocatoria.titulo}" />
-						</h1>
-						<p class="lead">
-							<c:out value="${fn:substring(convocatoria.objetivo, 0, 280)}" />
-						</p>
-					</div>
-					<div class="col-md-2 text-center" id="centrar">
-						<a href="#" class="btn btn-outline-primary center-block active">Ver
-							Convocatoria</a>
-					</div>
-				</div>
-				<hr>
+					<hr>
+				</c:if>
 			</c:forEach>
 			<div class="row">
 				<div class="col-md-1 text-center" id="centrar">

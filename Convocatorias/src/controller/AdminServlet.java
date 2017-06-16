@@ -22,7 +22,9 @@ public class AdminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String forward = "";
-
+		
+		request.setAttribute("mensaje", "0");
+		
 		forward = "/nuevaConvocatoria.jsp";
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
