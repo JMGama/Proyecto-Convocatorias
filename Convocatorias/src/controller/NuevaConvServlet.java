@@ -47,10 +47,10 @@ public class NuevaConvServlet extends HttpServlet {
 		convocatoria.setInstagram(request.getParameter("instagramConv"));
 		convocatoria.setEstado("En revision");
 		
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		try {
-			convocatoria.setFechaInicial(dateFormat.parse(request.getParameter("fechaInicioConv")));
-			convocatoria.setFechaFinal(dateFormat.parse(request.getParameter("fechaFinalConv")));
+			convocatoria.setFechaInicial(dateFormat.parse(request.getParameter("fechaInicioConv").replace('-', '/')));
+			convocatoria.setFechaFinal(dateFormat.parse(request.getParameter("fechaFinalConv").replace('-', '/')));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

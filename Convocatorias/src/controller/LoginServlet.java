@@ -27,6 +27,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String forward = "";
 		
 		request.setAttribute("msjErrorUser", "");
@@ -81,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("msjErrorPass", "");
 				forward = "/AdminServlet";
 			}
-			
+			usuarioDao.cerrarfactory();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

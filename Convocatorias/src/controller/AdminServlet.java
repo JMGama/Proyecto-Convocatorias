@@ -37,6 +37,8 @@ public class AdminServlet extends HttpServlet {
 		ConvocatoriaDao convocatoriasDao = new ConvocatoriaDao();
 		request.setAttribute("convocatorias", convocatoriasDao.getAllConvocatorias());
 		
+		request.setAttribute("mensaje", "0");
+		
 		forward = "/adminConvocatorias.jsp";
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
