@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nt.domain.Comentario;
 import com.nt.domain.Convocatoria;
 
 import dao.ConvocatoriaDao;
@@ -99,6 +100,54 @@ public class RevisionConServlet extends HttpServlet {
 				forward = "/adminConvocatorias.jsp";
 				convocatoriaDao.cerrarfactory();
 			}
+		}else {
+			Convocatoria convocatoria = new Convocatoria();
+			
+			convocatoria.setIdConvocatoria(idConvocatoria);
+			convocatoria.setTitulo(request.getParameter("tituloConv"));
+			convocatoria.setObjetivo(request.getParameter("objetivoConv"));
+			convocatoria.setBases(request.getParameter("basesConv"));
+			convocatoria.setRequisitos(request.getParameter("requisitosConv"));
+			convocatoria.setTelefono(Long.parseLong(request.getParameter("telefonoConv")));
+			convocatoria.setCorreo(request.getParameter("correoConv"));
+			convocatoria.setPaginaWeb(request.getParameter("paginawebConv"));
+			convocatoria.setDireccion(request.getParameter("direccionConv"));
+			convocatoria.setResponsable(request.getParameter("responsableConv"));
+			convocatoria.setFacebook(request.getParameter("facebookConv"));
+			convocatoria.setTwitter(request.getParameter("twitterConv"));
+			convocatoria.setYoutube(request.getParameter("youtubeConv"));
+			convocatoria.setInstagram(request.getParameter("instagramConv"));
+			convocatoria.setEstado("Correccion");
+
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			try {
+				convocatoria.setFechaInicial(dateFormat.parse(request.getParameter("fechaInicioConv").replace('-', '/')));
+				convocatoria.setFechaFinal(dateFormat.parse(request.getParameter("fechaFinalConv").replace('-', '/')));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			ConvocatoriaDao convocatoriaDao = new ConvocatoriaDao();
+			if (convocatoriaDao.updateConvocatoria(convocatoria)) {
+				request.setAttribute("mensaje", "1");
+				request.setAttribute("convocatorias", convocatoriaDao.getAllConvocatorias());
+				
+				forward = "/adminConvocatorias.jsp";
+				convocatoriaDao.cerrarfactory();
+			}else{
+				request.setAttribute("mensaje", "2");
+				request.setAttribute("convocatorias", convocatoriaDao.getAllConvocatorias());
+				
+				forward = "/adminConvocatorias.jsp";
+				convocatoriaDao.cerrarfactory();
+			}
+			 /*
+			String comentarioDatos = request.getParameter("datosComentario");
+			String comentarioDatos = request.getParameter("datosComentario");
+			Comentario comentario = new Comentario();
+			*/
+			
+			
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
