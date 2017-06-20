@@ -141,12 +141,11 @@ public class RevisionConServlet extends HttpServlet {
 				forward = "/adminConvocatorias.jsp";
 				convocatoriaDao.cerrarfactory();
 			}
-			 /*
+			/*
 			String comentarioDatos = request.getParameter("datosComentario");
 			String comentarioDatos = request.getParameter("datosComentario");
 			Comentario comentario = new Comentario();
 			*/
-			
 			
 		}
 		
