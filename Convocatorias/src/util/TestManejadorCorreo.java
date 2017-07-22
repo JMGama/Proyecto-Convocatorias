@@ -8,7 +8,7 @@ public class TestManejadorCorreo {
 		ManejadorCorreos manejadorCorreos = new ManejadorCorreos();
 
 		try {
-			manejadorCorreos.enviarCorreo("jogamaes@ucq.edu.mx", "Prueba de correo");
+			manejadorCorreos.enviarCorreo("jogamaes@ucq.edu.mx", "Prueba de correo", "este es un mensaje de prueba");
 		} catch (NoSuchProviderException e) {
 			e.printStackTrace();
 		} catch (javax.mail.MessagingException e) {

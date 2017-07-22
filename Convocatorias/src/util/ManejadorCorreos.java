@@ -28,7 +28,7 @@ public class ManejadorCorreos {
 		props.put("mail.smtp.port", "465");
 	}
 	
-	public void enviarCorreo(String destino, String mensaje) throws MessagingException, NoSuchProviderException{
+	public void enviarCorreo(String destino, String asunto, String mensaje) throws MessagingException, NoSuchProviderException{
 		sesion = Session.getDefaultInstance(props, new javax.mail.Authenticator(){
 			protected PasswordAuthentication getPasswordAuthentication(){
 				return new PasswordAuthentication("pruebasjosegama@gmail.com","contrasenia");
@@ -38,8 +38,8 @@ public class ManejadorCorreos {
 		msg = new MimeMessage(sesion);
 		msg.setFrom(new InternetAddress("pruebasjosegama@gmail.com"));
 		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(destino));
-		msg.setSubject(" Tienes un nuevo correo electronico.");
-		msg.setText("<h2>"+mensaje+"</h2>", "UTF-8","html");
+		msg.setSubject(asunto);
+		msg.setText(mensaje, "UTF-8","html");
 		t.send(msg, msg.getAllRecipients());
 		t.close();
 	}

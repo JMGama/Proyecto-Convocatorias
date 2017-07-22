@@ -51,6 +51,32 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" id="send-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-primary">
+					<h4 class="modal-title" id="centrar">Enviar Convocatoria</h4>
+					<button class="close" data-dismiss="modal" type="button">×</button>
+				</div>
+				<form class="" method="post" action="EmailServlet">
+					<div class="modal-body">
+
+						<div class="form-group text-left" id="userDiv">
+							<label class="">E-mail</label> <input id="user" type="text"
+								class="form-control" placeholder="Ingresa tu E-mail"
+								name="email">
+							<input type="hidden" name="idConvocatoria" id="idConvocatoria">
+						</div>
+
+					</div>
+					<div class="modal-footer bg-faded">
+						<a class="btn btn-default active" data-dismiss="modal">Cancelar</a>
+						<button class="btn btn-primary btn-send text-white" type="submit">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<div class="cover d-flex align-items-center pt-5 bg-primary" id="cover">
 		<div class="container">
 			<div class="row">
@@ -114,7 +140,8 @@
 							</p>
 						</div>
 						<div class="col-md-2 text-center" id="centrar">
-							<a href="#" class="btn btn-outline-primary center-block active">Ver
+							<a href="#" onclick="sendMail(${convocatoria.idConvocatoria})" class="btn btn-outline-primary center-block"
+								data-target="#send-modal" data-toggle="modal">Enviar
 								Convocatoria</a>
 						</div>
 					</div>
@@ -215,6 +242,11 @@
 			$('#pass').attr('class', 'form-control form-control-danger');
 			$('#passDiv').attr('class', 'form-group text-left has-danger');
 		}
+		
+		function sendMail(id) {
+		    $('#idConvocatoria').val(id);
+		}
+		
 	</script>
 </body>
 
